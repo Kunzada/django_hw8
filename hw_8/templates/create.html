@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="mt-5 ml-1">
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group px-5">
+        <label for="titleInput1">Title</label>
+        <input type="text" class="form-control" placeholder="Enter title" name="title">
+      </div>
+      <div class="form-group px-5">
+        <label for="status">Status</label>
+        <select class="form-control" id="status" name="status">
+          <option value="i">In process</option>
+          <option value="d">Done</option>
+          <option value="p">Planning</option>
+        </select>
+      </div>
+    <div class="form-group px-5">
+        <input type="file" class="pt-3" id="myFile" name="image"> <br><br>
+    </div>
+    <div class="form-group px-5">
+    <button class="btn btn-primary px-5 ml-5" type="submit">Create</button>
+    </div>
+</form>
+</div >
+{% endblock%}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+    {% for todo in todos %}
+    <div class="col-md-3 m-5">
+      <div class="card">
+        <img src="{{ todo.image.url }}" class="card-img-top" alt="{{ todo.title }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ todo.title }}</h5>
+          <p class="card-text">{{ todo.get_status_display }}</p>
+          <a href="{% url 'detail' todo.id %}" class="btn btn-primary">Read more</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+    
+    
+{%endblock%}

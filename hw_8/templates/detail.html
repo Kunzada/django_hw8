@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mx-5 mt-4">
+<img src="{{todo.image.url}}" alt="{{todo.title}}">
+<h1>{{todo.title}}</h1>
+{% if todo.get_status_display == 'in_process' %}
+    <p style="color:red">{{ todo.get_status_display }}</p>
+{% endif %}
+{% if todo.get_status_display == 'done' %}
+    <p style="color:green">{{ todo.get_status_display }}</p>
+{% endif %}
+{% if todo.get_status_display == 'planning' %}
+    <p style="color:blue">{{ todo.get_status_display }}</p>
+{% endif %}
+<a href="{% url 'delete' todo.id %}" class="btn btn-warning">Delete</a>
+<a href="{% url 'edit' todo.id %}" class="btn btn-success">Edit</a>
+</div>
+{% endblock%}
